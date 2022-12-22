@@ -5,6 +5,7 @@ import HighLightReact from './highlight-react';
 
 function App() {
   const imgRef = useRef<HTMLImageElement>(null)
+
   function generateJSError(){
       const o = {};
       o.a.b = "2"
@@ -32,7 +33,12 @@ function App() {
     if(imgRef.current){
       imgRef.current.src = "http://www.error.example.com/img.png"
     } 
-   
+  }
+
+  function generateCrash() {
+    while(1){
+      
+    }
   }
 
 
@@ -46,7 +52,8 @@ function App() {
         <Card title="网络请求错误(xhr)"   fun={generateXHRError} />
         <Card title="网络请求错误(fetch)" fun={generateFetchError} />
         <Card title="资源请求错误"        fun={generateResourceError}/>
-          <img ref={imgRef}></img>
+        <img ref={imgRef}></img>
+        <Card title="页面崩溃"            fun={generateCrash}/>
       </div>
 
       <div>
